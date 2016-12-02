@@ -23,7 +23,6 @@ public class TestaListaAula {
 		// mesmo metodo do de cima porém esta é a nova versão do Java 8
 		aulas.sort(Comparator.comparing(Aula::getTempo));
 		
-		
 	}
 	
 
