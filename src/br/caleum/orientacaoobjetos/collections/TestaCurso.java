@@ -10,9 +10,6 @@ public class TestaCurso {
 		
 		System.out.println(curso.getAulas());
 		
-		curso.getAulas().add(new Aula("Relacionamento lista e Objetos",15));
-		
-		System.out.println(curso.getAulas());
 		
 	}
 	
