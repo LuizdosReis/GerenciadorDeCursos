@@ -2,7 +2,9 @@ package br.caleum.orientacaoobjetos.collections;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Curso {
 
@@ -10,6 +12,7 @@ public class Curso {
 	private String instrutor;
 	private int tempoTotal = 0;
 	private List<Aula> aulas = new ArrayList<>();
+	private Set<Aluno> alunos = new HashSet<>();
 
 	public Curso(String nome, String instrutor) {
 		this.nome = nome;
@@ -37,9 +40,25 @@ public class Curso {
 		return tempoTotal;
 	}
 	
+	/**
+	 * metodo do Java 8
+	 * @return
+	 */
+	public int getTempoTotal2(){
+		return this.aulas.stream().mapToInt(Aula::getTempo).sum();
+	}
+	
 	@Override
 	public String toString() {
-		return "[ Curso: "+ nome +", Instrutor: " + instrutor +", tempo total: "+ tempoTotal +"]";
+		return "[Curso: "+ nome +", tempo total: "+ tempoTotal +", aulas: "+aulas+"]";
+	}
+
+	public void matricula(Aluno aluno) {
+		this.alunos.add(aluno);
+	}
+	
+	public Set<Aluno> getAlunos() {
+		return Collections.unmodifiableSet(alunos);
 	}
 
 }
