@@ -1,5 +1,9 @@
 package br.caleum.orientacaoobjetos.collections;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 public class TesteCursoComAluno {
 	public static void main(String[] args) {
 		Curso curso = new Curso("Dominando as collections", "Paulo Silveira");
@@ -15,6 +19,20 @@ public class TesteCursoComAluno {
 		curso.getAlunos().forEach(aluno -> {
 			System.out.println(aluno);
 		});
+		
+		curso.estaMatriculo(new Aluno("Rodrigo Turini", 34672));
+		
+		Set<String> conjunto = new HashSet<>();
+		conjunto.add("A");
+		conjunto.add("A"); // não adiciona, já existe
+		conjunto.add("B");
+		
+		Iterator <String> iterador = conjunto.iterator();
+		
+		while(iterador.hasNext()){
+			System.out.println(iterador.next());
+		}
+		
 		
 	}
 
